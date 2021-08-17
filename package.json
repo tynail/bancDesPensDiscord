@@ -1,0 +1,22 @@
+{
+  "name": "bancdespensdiscord",
+  "version": "1.0.0",
+  "description": "Discord bot to send bad joke tellers to penaltie bench",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tynail/bancDesPensDiscord.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tynail/bancDesPensDiscord/issues"
+  },
+  "homepage": "https://github.com/tynail/bancDesPensDiscord#readme",
+  "dependencies": {
+    "discord.js": "^13.1.0"
+  }
+}
