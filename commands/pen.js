@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, VoiceChannel } = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -6,11 +6,6 @@ module.exports = {
     .setDescription("2 min pour joke de marde! ")
     .addUserOption((option) =>
       option.setName("target").setDescription("The member to give a 2 min to")
-    )
-    .addChannelOption((option) =>
-      option
-        .setName("ban-des-pens")
-        .setDescription("The channel to move the member to")
     )
     // add time option
     .addIntegerOption((option) =>
@@ -22,16 +17,14 @@ module.exports = {
   async execute(interaction) {
     const member = interaction.options.getMember("target");
 
-    console.log("🦧", member.voice.channel);
-    // const toVoiceChannel = interaction.options.getChannel("ban-des-pens");
+    const toVoiceChannel = interaction.guild.channels.cache.get(
+      "1071141606926856403"
+    );
 
-    const channel = interaction.guild.channels.cache.get("1071141606926856403");
-
-    // FInd a way to hardcode the channel id
     const timeOfpen = (interaction.options.getInteger("time") ?? 30) * 1000;
 
     // Move the member to the toVoiceChannel
-    await member.voice.setChannel(channel);
+    await member.voice.setChannel(toVoiceChannel);
 
     // wait x secondes and move the member back to their original channel
     setTimeout(async () => {
@@ -39,7 +32,7 @@ module.exports = {
     }, timeOfpen);
 
     return interaction.reply({
-      content: `You have given ${timeOfpen / 1000} min to: ${
+      content: `You have given ${timeOfpen / 1000} secondes to: ${
         member.user.username
       }`,
       ephemeral: true,
