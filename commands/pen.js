@@ -37,7 +37,6 @@ module.exports = {
       content: `You have given ${timeOfpen / 1000} secondes to: ${
         member.user.username
       }`,
-      ephemeral: true,
     });
   },
 };
