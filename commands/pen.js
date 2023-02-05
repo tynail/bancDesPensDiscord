@@ -17,9 +17,11 @@ module.exports = {
   async execute(interaction) {
     const member = interaction.options.getMember("target");
 
-    const toVoiceChannel = interaction.guild.channels.cache.get(
-      "1071141606926856403"
-    );
+    const toVoiceChannel =
+      interaction.guild.channels.cache.get("621712907167727617");
+
+    // "1071141606926856403" ban des pens FJJ
+    // 621712907167727617 Whale of Anus satanisme
 
     const timeOfpen = (interaction.options.getInteger("time") ?? 30) * 1000;
 
